@@ -611,6 +611,53 @@
 
     .delay-text { font-size: .8rem; font-weight: 750; }
 
+    .station-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .station-card {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--paper);
+    }
+
+    .station-name {
+      font-size: .84rem;
+      font-weight: 950;
+    }
+
+    .station-line {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: .64rem;
+      font-weight: 800;
+    }
+
+    .station-exit {
+      font-size: .77rem;
+      font-weight: 800;
+      line-height: 1.55;
+    }
+
+    .exit-badge {
+      display: inline-block;
+      margin-right: 5px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e5f0ea;
+      color: var(--green-dark);
+      font-size: .68rem;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
     .unconfirmed {
       display: inline-block;
       padding: 1px 7px;
@@ -740,6 +787,41 @@
         </div>
       </section>
 
+      <section id="stations" aria-labelledby="stations-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Station guide</p>
+            <h2 id="stations-title">駅・出口早見</h2>
+          </div>
+        </div>
+        <div class="station-list">
+          <article class="station-card">
+            <div class="station-name">車道駅<span class="station-line">桜通線</span></div>
+            <div class="station-exit"><span class="exit-badge">1番出入口</span>m.・駐車場との往復で使用</div>
+          </article>
+          <article class="station-card">
+            <div class="station-name">久屋大通駅<span class="station-line">桜通線 → 名城線</span></div>
+            <div class="station-exit"><span class="exit-badge">出口なし</span>改札を出ずに乗換</div>
+          </article>
+          <article class="station-card">
+            <div class="station-name">栄駅<span class="station-line">名城線</span></div>
+            <div class="station-exit"><span class="exit-badge">2番出入口</span>IENの目の前</div>
+          </article>
+          <article class="station-card">
+            <div class="station-name">上前津駅<span class="station-line">名城線・鶴舞線</span></div>
+            <div class="station-exit"><span class="exit-badge">7番出入口</span>EGORAPIN’まで徒歩約5分</div>
+          </article>
+          <article class="station-card">
+            <div class="station-name">伏見駅<span class="station-line">鶴舞線 → 東山線</span></div>
+            <div class="station-exit"><span class="exit-badge">出口なし</span>改札を出ずに乗換</div>
+          </article>
+          <article class="station-card">
+            <div class="station-name">名古屋駅<span class="station-line">東山線・桜通線</span></div>
+            <div class="station-exit"><span class="exit-badge">地上へ出ない</span>「JR名古屋駅・JRセントラルタワーズ」方面からタカシマヤB1へ</div>
+          </article>
+        </div>
+      </section>
+
       <section id="timeline" aria-labelledby="timeline-title">
         <div class="section-head">
           <div>
@@ -790,7 +872,7 @@
             <div class="plan-main">
               <div class="time-row"><time class="plan-time">9:30–10:00</time><span class="kind move">徒歩＋地下鉄</span></div>
               <h3 class="plan-title">車道駅から栄駅へ</h3>
-              <p class="plan-note">車に荷物を置く → 車道駅 → 久屋大通で乗換 → 栄駅。移動 約30分。</p>
+              <p class="plan-note">車に荷物を置く → 車道駅1番入口 → 久屋大通駅で改札を出ず名城線へ乗換 → 栄駅2番出口。移動 約30分。</p>
             </div>
           </article>
 
@@ -812,7 +894,7 @@
             <div class="plan-main">
               <div class="time-row"><time class="plan-time">10:20–10:40</time><span class="kind move">地下鉄＋徒歩</span></div>
               <h3 class="plan-title">栄駅から上前津へ</h3>
-              <p class="plan-note">名城線で上前津駅へ。7番出口から徒歩約5分。</p>
+              <p class="plan-note">栄駅2番入口 → 名城線 → 上前津駅7番出口。EGORAPIN’まで徒歩約5分。</p>
             </div>
           </article>
 
@@ -845,7 +927,7 @@
             <div class="plan-main">
               <div class="time-row"><time class="plan-time">11:20–11:50</time><span class="kind move">地下鉄</span></div>
               <h3 class="plan-title">上前津から名古屋駅へ</h3>
-              <p class="plan-note">上前津 → 伏見で乗換 → 名古屋。移動 約30分。</p>
+              <p class="plan-note">上前津駅7番入口 → 鶴舞線 → 伏見駅で改札を出ず東山線へ乗換 → 名古屋駅。地上へ出ず「JR名古屋駅・JRセントラルタワーズ」方面からタカシマヤB1へ。移動 約30分。</p>
             </div>
           </article>
 
@@ -867,7 +949,7 @@
             <div class="plan-main">
               <div class="time-row"><time class="plan-time">12:30–12:55</time><span class="kind move">地下鉄＋徒歩</span></div>
               <h3 class="plan-title">名古屋駅から車道へ戻る</h3>
-              <p class="plan-note">桜通線で車道駅へ直通。駐車場まで歩く。</p>
+              <p class="plan-note">タカシマヤB1から地上へ出ず「地下鉄桜通線」案内へ → 名古屋駅から直通 → 車道駅1番出口 → 駐車場まで歩く。</p>
             </div>
           </article>
 
@@ -926,7 +1008,7 @@
               <dl class="detail-grid">
                 <div class="detail-row"><dt>住所</dt><dd>名古屋市東区筒井1-14-17</dd></div>
                 <div class="detail-row"><dt>営業時間</dt><dd>8:00–17:00（水〜日）</dd></div>
-                <div class="detail-row"><dt>最寄り</dt><dd>地下鉄 桜通線 車道駅</dd></div>
+                <div class="detail-row"><dt>最寄り</dt><dd>地下鉄 桜通線 車道駅1番出口から徒歩約6分</dd></div>
                 <div class="detail-row"><dt>専用駐車場</dt><dd>なし。周辺コインパーキング利用</dd></div>
               </dl>
               <div class="priority"><strong>目的：</strong>品揃えを見て購入。特定商品なし。購入後、常温品は車へ。</div>
@@ -980,6 +1062,7 @@
               <dl class="detail-grid">
                 <div class="detail-row"><dt>場所</dt><dd>ジェイアール名古屋タカシマヤ B1 洋菓子売場</dd></div>
                 <div class="detail-row"><dt>営業時間</dt><dd>10:00–20:00</dd></div>
+                <div class="detail-row"><dt>最寄り</dt><dd>地下鉄 名古屋駅。地上へ出ず「JR名古屋駅・JRセントラルタワーズ」方面からB1へ</dd></div>
                 <div class="detail-row"><dt>ロダス</dt><dd>数量制限・売り切れの可能性あり</dd></div>
                 <div class="detail-row"><dt>希望商品</dt><dd><span class="unconfirmed">未確認</span></dd></div>
               </dl>
