@@ -1,0 +1,1233 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff8ef">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="2026年7月19日 名古屋パン・スイーツ巡りの日帰り旅行プラン">
+  <title>名古屋 パンとスイーツの旅｜2026.07.19</title>
+  <style>
+    :root {
+      --cream: #fff8ef;
+      --paper: #fffdf9;
+      --ink: #332b27;
+      --muted: #776d66;
+      --line: #eadfd3;
+      --orange: #e96f3d;
+      --orange-dark: #bd4f25;
+      --orange-soft: #fff0e7;
+      --green: #527c62;
+      --green-soft: #eef6f0;
+      --yellow: #f6c85f;
+      --red: #bd4d48;
+      --shadow: 0 12px 30px rgba(84, 57, 37, .09);
+      --radius: 22px;
+      --safe-bottom: max(18px, env(safe-area-inset-bottom));
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 100% 0, rgba(246, 200, 95, .2), transparent 27rem),
+        linear-gradient(180deg, #fffaf3 0, var(--cream) 42rem, #f8f2e9 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
+      font-feature-settings: "palt";
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button, input { font: inherit; }
+    a { color: inherit; }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 100;
+      transform: translateY(-160%);
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--ink);
+      color: white;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .app-shell {
+      width: min(100%, 780px);
+      margin: 0 auto;
+      padding: 0 16px calc(92px + var(--safe-bottom));
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      margin: 0 -16px 20px;
+      padding: max(26px, env(safe-area-inset-top)) 22px 28px;
+      color: #fffaf5;
+      background:
+        radial-gradient(circle at 88% 20%, rgba(255, 219, 139, .38) 0 5rem, transparent 5.1rem),
+        linear-gradient(145deg, #8c3e28, #d86436 68%, #ee8a4d);
+      border-radius: 0 0 32px 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -34px;
+      bottom: -66px;
+      width: 170px;
+      height: 170px;
+      border: 22px solid rgba(255, 255, 255, .08);
+      border-radius: 50%;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .86;
+    }
+
+    h1 {
+      max-width: 11em;
+      margin: 0;
+      font-size: clamp(2rem, 9vw, 3.65rem);
+      line-height: 1.08;
+      letter-spacing: -.035em;
+    }
+
+    .hero-sub {
+      margin: 12px 0 0;
+      font-size: .98rem;
+      font-weight: 700;
+      opacity: .92;
+    }
+
+    .route-ribbon {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      margin: 22px -4px 0;
+      padding: 0 4px 4px;
+      scrollbar-width: none;
+    }
+
+    .route-ribbon::-webkit-scrollbar { display: none; }
+
+    .route-chip {
+      flex: 0 0 auto;
+      padding: 7px 11px;
+      border: 1px solid rgba(255, 255, 255, .24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .13);
+      font-size: .76rem;
+      font-weight: 800;
+      backdrop-filter: blur(8px);
+    }
+
+    .status-card {
+      position: sticky;
+      top: 10px;
+      z-index: 20;
+      margin: 0 0 22px;
+      padding: 14px;
+      border: 1px solid rgba(234, 223, 211, .86);
+      border-radius: 18px;
+      background: rgba(255, 253, 249, .92);
+      box-shadow: 0 8px 22px rgba(84, 57, 37, .1);
+      backdrop-filter: blur(14px);
+    }
+
+    .status-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .status-label {
+      color: var(--orange-dark);
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    #nextPlan {
+      overflow: hidden;
+      margin-top: 2px;
+      font-size: .92rem;
+      font-weight: 850;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .progress-text {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: .75rem;
+      font-weight: 800;
+    }
+
+    .progress-track {
+      height: 5px;
+      margin-top: 10px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: var(--line);
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--orange), var(--yellow));
+      transition: width .3s ease;
+    }
+
+    .quick-nav {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 0 0 30px;
+    }
+
+    .quick-nav a {
+      display: grid;
+      min-height: 64px;
+      place-items: center;
+      padding: 9px 5px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: 0 5px 14px rgba(84, 57, 37, .05);
+      font-size: .71rem;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .quick-nav span { display: block; font-size: 1.15rem; line-height: 1; }
+
+    section { margin: 0 0 40px; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 0 2px 16px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.42rem;
+      line-height: 1.25;
+      letter-spacing: -.02em;
+    }
+
+    .section-kicker {
+      margin: 0 0 3px;
+      color: var(--orange-dark);
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .subtle {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .summary-card {
+      min-height: 112px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: 0 8px 18px rgba(84, 57, 37, .045);
+    }
+
+    .summary-card.wide { grid-column: 1 / -1; min-height: 0; }
+    .summary-icon { font-size: 1.25rem; }
+    .summary-label { margin-top: 8px; color: var(--muted); font-size: .72rem; font-weight: 750; }
+    .summary-value { margin-top: 1px; font-size: .95rem; font-weight: 850; }
+
+    .route-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    .route-line b { color: var(--orange-dark); }
+    .route-arrow { color: #b6a69c; }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 28px;
+      bottom: 28px;
+      left: 30px;
+      width: 2px;
+      background: linear-gradient(var(--orange), #e6d8ca 78%);
+    }
+
+    .plan-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 12px;
+      padding: 15px 14px 15px 12px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--paper);
+      box-shadow: 0 7px 18px rgba(84, 57, 37, .04);
+      transition: border-color .2s, box-shadow .2s, transform .2s, opacity .2s;
+    }
+
+    .plan-item.is-next {
+      border-color: var(--orange);
+      box-shadow: 0 12px 28px rgba(215, 95, 48, .17);
+      transform: translateY(-1px);
+    }
+
+    .plan-item.is-next::after {
+      content: "現在 / 次";
+      position: absolute;
+      top: -9px;
+      right: 13px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: white;
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+
+    .plan-item.is-complete { opacity: .58; }
+    .plan-item.is-complete .plan-title { text-decoration: line-through; }
+
+    .check-wrap {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      align-self: start;
+      border: 2px solid #d7c7bb;
+      border-radius: 13px;
+      background: var(--paper);
+      cursor: pointer;
+    }
+
+    .plan-check {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+    }
+
+    .check-mark {
+      width: 12px;
+      height: 7px;
+      transform: rotate(-45deg) translate(1px, -1px);
+      border-bottom: 3px solid transparent;
+      border-left: 3px solid transparent;
+    }
+
+    .plan-check:focus-visible + .check-mark { outline: 3px solid rgba(233, 111, 61, .25); outline-offset: 7px; }
+    .plan-check:checked + .check-mark { border-color: white; }
+    .check-wrap:has(.plan-check:checked) { border-color: var(--green); background: var(--green); }
+
+    .plan-main { min-width: 0; }
+
+    .time-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .plan-time {
+      color: var(--orange-dark);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .kind {
+      padding: 2px 8px;
+      border-radius: 99px;
+      background: var(--orange-soft);
+      color: var(--orange-dark);
+      font-size: .62rem;
+      font-weight: 900;
+    }
+
+    .kind.move { background: #edf3f6; color: #4d6d7b; }
+    .kind.shop { background: var(--green-soft); color: var(--green); }
+    .kind.food { background: #fff5d9; color: #8a6512; }
+
+    .plan-title { margin: 4px 0 0; font-size: 1rem; font-weight: 900; line-height: 1.35; }
+    .plan-note { margin: 4px 0 0; color: var(--muted); font-size: .78rem; line-height: 1.55; }
+
+    .reset-btn, .ghost-btn {
+      min-height: 38px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--paper);
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .visit-list { display: grid; gap: 12px; }
+
+    .visit-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .visit-summary {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr) 30px;
+      gap: 12px;
+      width: 100%;
+      align-items: center;
+      padding: 16px;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .visit-no {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--orange-soft);
+      color: var(--orange-dark);
+      font-size: .75rem;
+      font-weight: 950;
+    }
+
+    .visit-card:nth-child(even) .visit-no { background: var(--green-soft); color: var(--green); }
+    .visit-name { font-size: 1rem; font-weight: 900; line-height: 1.3; }
+    .visit-meta { margin-top: 3px; color: var(--muted); font-size: .72rem; font-weight: 700; }
+
+    .chevron {
+      display: grid;
+      width: 28px;
+      height: 28px;
+      place-items: center;
+      border-radius: 50%;
+      background: #f5eee7;
+      transition: transform .22s ease;
+    }
+
+    .visit-summary[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+
+    .visit-body {
+      display: none;
+      padding: 0 16px 17px;
+    }
+
+    .visit-body.is-open { display: block; animation: reveal .2s ease-out; }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .detail-grid {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 5.3em minmax(0, 1fr);
+      gap: 10px;
+      padding: 11px 0;
+      border-bottom: 1px solid #f0e8df;
+      font-size: .8rem;
+    }
+
+    .detail-row dt { color: var(--muted); font-weight: 800; }
+    .detail-row dd { margin: 0; font-weight: 700; }
+
+    .priority {
+      margin: 13px 0;
+      padding: 12px 13px;
+      border-left: 4px solid var(--orange);
+      border-radius: 4px 14px 14px 4px;
+      background: var(--orange-soft);
+      font-size: .8rem;
+    }
+
+    .map-link {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      width: 100%;
+      padding: 9px 14px;
+      border-radius: 14px;
+      background: var(--ink);
+      color: white;
+      font-size: .8rem;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .parking-list, .notice-list, .packing-list, .delay-list { display: grid; gap: 10px; }
+
+    .info-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: 0 7px 18px rgba(84, 57, 37, .045);
+    }
+
+    .info-card.recommended { border: 2px solid var(--green); }
+
+    .info-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .info-title { margin: 0; font-size: .94rem; font-weight: 900; }
+    .info-rank { flex: 0 0 auto; color: var(--orange-dark); font-size: .68rem; font-weight: 950; }
+    .info-card p { margin: 7px 0 0; color: var(--muted); font-size: .78rem; }
+
+    .small-map {
+      display: inline-flex;
+      margin-top: 12px;
+      color: var(--orange-dark);
+      font-size: .76rem;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .alert {
+      padding: 16px;
+      border: 1px solid #efd1bd;
+      border-radius: 18px;
+      background: #fff4ed;
+    }
+
+    .alert strong { color: var(--orange-dark); }
+    .alert p { margin: 5px 0 0; font-size: .8rem; }
+
+    .check-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .packing-item {
+      display: flex;
+      min-height: 58px;
+      align-items: center;
+      gap: 10px;
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--paper);
+      font-size: .78rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .packing-item input { width: 19px; height: 19px; accent-color: var(--green); }
+
+    .delay-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--paper);
+    }
+
+    .delay-trigger {
+      padding: 4px 8px;
+      border-radius: 8px;
+      background: #f1e8df;
+      color: var(--muted);
+      font-size: .67rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .delay-text { font-size: .8rem; font-weight: 750; }
+
+    .unconfirmed {
+      display: inline-block;
+      padding: 1px 7px;
+      border-radius: 999px;
+      background: #f1ece7;
+      color: #776d66;
+      font-size: .66rem;
+      font-weight: 900;
+    }
+
+    footer {
+      padding: 16px 8px 0;
+      color: var(--muted);
+      font-size: .7rem;
+      text-align: center;
+    }
+
+    .bottom-note {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .55);
+    }
+
+    @media (min-width: 620px) {
+      .app-shell { padding-inline: 24px; }
+      .hero { margin-inline: -24px; padding-inline: 34px; }
+      .summary-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .summary-card.wide { grid-column: 1 / -1; }
+      .visit-list, .parking-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .visit-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+      .check-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+
+    @media print {
+      body { background: white; }
+      .app-shell { width: 100%; padding: 0; }
+      .hero { margin: 0 0 20px; border-radius: 18px; }
+      .status-card, .quick-nav, .reset-btn { display: none; }
+      .visit-body { display: block !important; }
+      .visit-card, .plan-item, .info-card { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <div class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">Nagoya day trip · 2026</p>
+      <h1>パンと<br>スイーツの旅</h1>
+      <p class="hero-sub">7月19日（日）｜袋井から大人2人で日帰り</p>
+      <div class="route-ribbon" aria-label="訪問順">
+        <span class="route-chip">m.</span>
+        <span class="route-chip">IEN</span>
+        <span class="route-chip">EGORAPIN’</span>
+        <span class="route-chip">ロダス・miel</span>
+        <span class="route-chip">TABLEAU</span>
+      </div>
+    </header>
+
+    <aside class="status-card" aria-live="polite">
+      <div class="status-top">
+        <div style="min-width:0">
+          <div class="status-label">NEXT PLAN</div>
+          <div id="nextPlan">予定を確認しています…</div>
+        </div>
+        <div class="progress-text" id="progressText">0 / 14</div>
+      </div>
+      <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+    </aside>
+
+    <nav class="quick-nav" aria-label="ページ内メニュー">
+      <a href="#timeline"><span>🕘</span>予定</a>
+      <a href="#visits"><span>🥯</span>お店</a>
+      <a href="#parking"><span>🅿️</span>駐車場</a>
+      <a href="#packing"><span>🧊</span>持ち物</a>
+    </nav>
+
+    <main id="main">
+      <section id="overview" aria-labelledby="overview-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Trip overview</p>
+            <h2 id="overview-title">旅行の概要</h2>
+          </div>
+        </div>
+        <div class="summary-grid">
+          <article class="summary-card">
+            <div class="summary-icon">🚗</div>
+            <div class="summary-label">出発</div>
+            <div class="summary-value">6:55<br>袋井IC付近</div>
+          </article>
+          <article class="summary-card">
+            <div class="summary-icon">👫</div>
+            <div class="summary-label">人数</div>
+            <div class="summary-value">大人2人</div>
+          </article>
+          <article class="summary-card">
+            <div class="summary-icon">🚇</div>
+            <div class="summary-label">市内移動</div>
+            <div class="summary-value">地下鉄中心<br>市バスも可</div>
+          </article>
+          <article class="summary-card">
+            <div class="summary-icon">🎫</div>
+            <div class="summary-label">乗車券</div>
+            <div class="summary-value">ドニチエコ<br>620円 × 2</div>
+          </article>
+          <article class="summary-card wide">
+            <div class="summary-label">確定ルート</div>
+            <div class="route-line">
+              <b>m.</b><span class="route-arrow">→</span>
+              <b>IEN</b><span class="route-arrow">→</span>
+              <b>EGORAPIN’</b><span class="route-arrow">→</span>
+              <b>ロダス・miel</b><span class="route-arrow">→</span>
+              <b>TABLEAU</b>
+            </div>
+          </article>
+          <article class="summary-card wide">
+            <div class="summary-label">食事・帰宅</div>
+            <div class="summary-value">昼食は購入したパン。帰宅時刻の制約なし。天気は <span class="unconfirmed">未確認</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="timeline" aria-labelledby="timeline-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Timeline</p>
+            <h2 id="timeline-title">当日のタイムライン</h2>
+          </div>
+          <button type="button" class="reset-btn" id="resetButton">チェックをリセット</button>
+        </div>
+
+        <div class="timeline" id="timelineList">
+          <article class="plan-item" data-plan-id="depart" data-start="2026-07-19T06:55:00+09:00" data-end="2026-07-19T08:35:00+09:00">
+            <label class="check-wrap" aria-label="袋井を出発を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">6:55</time><span class="kind move">車</span></div>
+              <h3 class="plan-title">袋井IC付近を出発</h3>
+              <p class="plan-note">高速道路を利用。m.付近まで計画上 約1時間40分。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="parking" data-start="2026-07-19T08:35:00+09:00" data-end="2026-07-19T08:50:00+09:00">
+            <label class="check-wrap" aria-label="駐車を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">8:35–8:50</time><span class="kind">駐車</span></div>
+              <h3 class="plan-title">m.付近の駐車場へ</h3>
+              <p class="plan-note">第一候補は名鉄協商 筒井3丁目第4。満車なら2〜3分で次へ。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="m" data-start="2026-07-19T09:00:00+09:00" data-end="2026-07-19T09:30:00+09:00">
+            <label class="check-wrap" aria-label="m.での買い物を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">9:00–9:30</time><span class="kind shop">買い物</span></div>
+              <h3 class="plan-title">Boulangerie m.</h3>
+              <p class="plan-note">品揃えを優先して9時前後に入店。常温パンは購入後に車へ。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="to-ien" data-start="2026-07-19T09:30:00+09:00" data-end="2026-07-19T10:00:00+09:00">
+            <label class="check-wrap" aria-label="IENへの移動を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">9:30–10:00</time><span class="kind move">徒歩＋地下鉄</span></div>
+              <h3 class="plan-title">車道駅から栄駅へ</h3>
+              <p class="plan-note">車に荷物を置く → 車道駅 → 久屋大通で乗換 → 栄駅。移動 約30分。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="ien" data-start="2026-07-19T10:00:00+09:00" data-end="2026-07-19T10:20:00+09:00">
+            <label class="check-wrap" aria-label="IENでの買い物を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">10:00–10:20</time><span class="kind shop">買い物</span></div>
+              <h3 class="plan-title">IEN Bake House</h3>
+              <p class="plan-note">妻の希望：クリームパン、チーズベーグル。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="to-egora" data-start="2026-07-19T10:20:00+09:00" data-end="2026-07-19T10:40:00+09:00">
+            <label class="check-wrap" aria-label="EGORAPIN’への移動を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">10:20–10:40</time><span class="kind move">地下鉄＋徒歩</span></div>
+              <h3 class="plan-title">栄駅から上前津へ</h3>
+              <p class="plan-note">名城線で上前津駅へ。7番出口から徒歩約5分。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="wait-egora" data-start="2026-07-19T10:40:00+09:00" data-end="2026-07-19T11:00:00+09:00">
+            <label class="check-wrap" aria-label="開店待ちを完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">10:40–11:00</time><span class="kind">待機</span></div>
+              <h3 class="plan-title">EGORAPIN’の開店待ち</h3>
+              <p class="plan-note">待ち時間は最大20分の想定。許容範囲30分以内。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="egora" data-start="2026-07-19T11:00:00+09:00" data-end="2026-07-19T11:20:00+09:00">
+            <label class="check-wrap" aria-label="EGORAPIN’での買い物を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">11:00–11:20</time><span class="kind shop">買い物</span></div>
+              <h3 class="plan-title">EGORAPIN’</h3>
+              <p class="plan-note">妻の希望：掛川抹茶ベーグルを最優先。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="to-takashimaya" data-start="2026-07-19T11:20:00+09:00" data-end="2026-07-19T11:50:00+09:00">
+            <label class="check-wrap" aria-label="タカシマヤへの移動を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">11:20–11:50</time><span class="kind move">地下鉄</span></div>
+              <h3 class="plan-title">上前津から名古屋駅へ</h3>
+              <p class="plan-note">上前津 → 伏見で乗換 → 名古屋。移動 約30分。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="takashimaya" data-start="2026-07-19T11:50:00+09:00" data-end="2026-07-19T12:30:00+09:00">
+            <label class="check-wrap" aria-label="ロダスとmielでの買い物を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">11:50–12:30</time><span class="kind shop">買い物</span></div>
+              <h3 class="plan-title">ロダス・maison du miel</h3>
+              <p class="plan-note">ジェイアール名古屋タカシマヤB1。混雑時は夫婦で分担。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="return-car" data-start="2026-07-19T12:30:00+09:00" data-end="2026-07-19T12:55:00+09:00">
+            <label class="check-wrap" aria-label="車への帰還を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">12:30–12:55</time><span class="kind move">地下鉄＋徒歩</span></div>
+              <h3 class="plan-title">名古屋駅から車道へ戻る</h3>
+              <p class="plan-note">桜通線で車道駅へ直通。駐車場まで歩く。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="lunch" data-start="2026-07-19T12:55:00+09:00" data-end="2026-07-19T13:15:00+09:00">
+            <label class="check-wrap" aria-label="昼食と保冷確認を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">12:55–13:15</time><span class="kind food">昼食</span></div>
+              <h3 class="plan-title">パンで昼食・保冷確認</h3>
+              <p class="plan-note">車内を冷やしてから昼食。保冷剤と商品の状態を確認。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="tableau" data-start="2026-07-19T13:15:00+09:00" data-end="2026-07-19T14:35:00+09:00">
+            <label class="check-wrap" aria-label="TABLEAUでの買い物を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">13:15–14:35</time><span class="kind move">車＋買い物</span></div>
+              <h3 class="plan-title">豊田のTABLEAUへ</h3>
+              <p class="plan-note">約50分で移動。14:05〜14:35に焼菓子とケーキを購入。</p>
+            </div>
+          </article>
+
+          <article class="plan-item" data-plan-id="home" data-start="2026-07-19T14:35:00+09:00" data-end="2026-07-19T16:40:00+09:00">
+            <label class="check-wrap" aria-label="帰宅を完了">
+              <input class="plan-check" type="checkbox"><span class="check-mark"></span>
+            </label>
+            <div class="plan-main">
+              <div class="time-row"><time class="plan-time">14:35〜</time><span class="kind move">車</span></div>
+              <h3 class="plan-title">袋井へ帰る</h3>
+              <p class="plan-note">袋井IC付近16:10〜16:40目安。帰宅時刻の制約なし。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="visits" aria-labelledby="visits-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Stops</p>
+            <h2 id="visits-title">訪問先の詳細</h2>
+          </div>
+          <span class="subtle">タップして開く</span>
+        </div>
+
+        <div class="visit-list">
+          <article class="visit-card">
+            <button class="visit-summary" type="button" aria-expanded="false" aria-controls="visit-m">
+              <span class="visit-no">01</span>
+              <span><span class="visit-name">Boulangerie m.</span><span class="visit-meta">9:00–9:30｜車道</span></span>
+              <span class="chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="visit-body" id="visit-m">
+              <dl class="detail-grid">
+                <div class="detail-row"><dt>住所</dt><dd>名古屋市東区筒井1-14-17</dd></div>
+                <div class="detail-row"><dt>営業時間</dt><dd>8:00–17:00（水〜日）</dd></div>
+                <div class="detail-row"><dt>最寄り</dt><dd>地下鉄 桜通線 車道駅</dd></div>
+                <div class="detail-row"><dt>専用駐車場</dt><dd>なし。周辺コインパーキング利用</dd></div>
+              </dl>
+              <div class="priority"><strong>目的：</strong>品揃えを見て購入。特定商品なし。購入後、常温品は車へ。</div>
+              <a class="map-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query=Boulangerie%20m.%20%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E6%9D%B1%E5%8C%BA%E7%AD%92%E4%BA%951-14-17">📍 Googleマップで開く</a>
+            </div>
+          </article>
+
+          <article class="visit-card">
+            <button class="visit-summary" type="button" aria-expanded="false" aria-controls="visit-ien">
+              <span class="visit-no">02</span>
+              <span><span class="visit-name">IEN Bake House</span><span class="visit-meta">10:00–10:20｜栄</span></span>
+              <span class="chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="visit-body" id="visit-ien">
+              <dl class="detail-grid">
+                <div class="detail-row"><dt>住所</dt><dd>名古屋市中区錦3-16-30</dd></div>
+                <div class="detail-row"><dt>営業時間</dt><dd>ベーカリー 8:00–19:00／完売次第終了</dd></div>
+                <div class="detail-row"><dt>定休日</dt><dd>不定休</dd></div>
+                <div class="detail-row"><dt>最寄り</dt><dd>栄駅2番出口 目の前</dd></div>
+              </dl>
+              <div class="priority"><strong>最優先：</strong>クリームパン、チーズベーグル。</div>
+              <a class="map-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query=IEN%20Bake%20House%20%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E4%B8%AD%E5%8C%BA%E9%8C%A63-16-30">📍 Googleマップで開く</a>
+            </div>
+          </article>
+
+          <article class="visit-card">
+            <button class="visit-summary" type="button" aria-expanded="false" aria-controls="visit-egora">
+              <span class="visit-no">03</span>
+              <span><span class="visit-name">EGORAPIN’</span><span class="visit-meta">11:00–11:20｜上前津</span></span>
+              <span class="chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="visit-body" id="visit-egora">
+              <dl class="detail-grid">
+                <div class="detail-row"><dt>住所</dt><dd>名古屋市中区門前町3-26-2 南大須ビル</dd></div>
+                <div class="detail-row"><dt>営業時間</dt><dd>11:00–18:00</dd></div>
+                <div class="detail-row"><dt>定休日</dt><dd>なし（毎日営業の案内）</dd></div>
+                <div class="detail-row"><dt>最寄り</dt><dd>上前津駅7番出口から徒歩約5分</dd></div>
+              </dl>
+              <div class="priority"><strong>最優先：</strong>掛川抹茶ベーグル。</div>
+              <a class="map-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query=EGORAPIN%20%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E4%B8%AD%E5%8C%BA%E9%96%80%E5%89%8D%E7%94%BA3-26-2">📍 Googleマップで開く</a>
+            </div>
+          </article>
+
+          <article class="visit-card">
+            <button class="visit-summary" type="button" aria-expanded="false" aria-controls="visit-takashimaya">
+              <span class="visit-no">04</span>
+              <span><span class="visit-name">ロダス・maison du miel</span><span class="visit-meta">11:50–12:30｜名古屋駅</span></span>
+              <span class="chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="visit-body" id="visit-takashimaya">
+              <dl class="detail-grid">
+                <div class="detail-row"><dt>場所</dt><dd>ジェイアール名古屋タカシマヤ B1 洋菓子売場</dd></div>
+                <div class="detail-row"><dt>営業時間</dt><dd>10:00–20:00</dd></div>
+                <div class="detail-row"><dt>ロダス</dt><dd>数量制限・売り切れの可能性あり</dd></div>
+                <div class="detail-row"><dt>希望商品</dt><dd><span class="unconfirmed">未確認</span></dd></div>
+              </dl>
+              <div class="priority"><strong>混雑時：</strong>一人がロダス、もう一人がmielへ行き、最大30分を目安に分担。</div>
+              <a class="map-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B8%E3%82%A7%E3%82%A4%E3%82%A2%E3%83%BC%E3%83%AB%E5%90%8D%E5%8F%A4%E5%B1%8B%E3%82%BF%E3%82%AB%E3%82%B7%E3%83%9E%E3%83%A4">📍 Googleマップで開く</a>
+            </div>
+          </article>
+
+          <article class="visit-card">
+            <button class="visit-summary" type="button" aria-expanded="false" aria-controls="visit-tableau">
+              <span class="visit-no">05</span>
+              <span><span class="visit-name">Pâtisserie TABLEAU</span><span class="visit-meta">14:05–14:35｜豊田</span></span>
+              <span class="chevron" aria-hidden="true">⌄</span>
+            </button>
+            <div class="visit-body" id="visit-tableau">
+              <dl class="detail-grid">
+                <div class="detail-row"><dt>住所</dt><dd>豊田市美里5-12-11</dd></div>
+                <div class="detail-row"><dt>営業時間</dt><dd>10:00–18:00</dd></div>
+                <div class="detail-row"><dt>定休日</dt><dd>月・火（7月19日は営業予定）</dd></div>
+                <div class="detail-row"><dt>電話</dt><dd><a href="tel:0565851161">0565-85-1161</a></dd></div>
+                <div class="detail-row"><dt>駐車場</dt><dd>あり／台数 <span class="unconfirmed">未確認</span></dd></div>
+              </dl>
+              <div class="priority"><strong>目的：</strong>焼菓子とケーキ。袋井まで約2時間と伝え、保冷剤を依頼。</div>
+              <a class="map-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query=Patisserie%20TABLEAU%20%E8%B1%8A%E7%94%B0%E5%B8%82%E7%BE%8E%E9%87%8C5-12-11">📍 Googleマップで開く</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="parking" aria-labelledby="parking-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Parking</p>
+            <h2 id="parking-title">m.付近の駐車場</h2>
+          </div>
+        </div>
+        <div class="parking-list">
+          <article class="info-card recommended">
+            <div class="info-top">
+              <h3 class="info-title">名鉄協商 筒井3丁目第4</h3>
+              <span class="info-rank">第1候補</span>
+            </div>
+            <p>14台／40分200円／24時間最大700円。m.と車道駅の両方へ動きやすい。</p>
+            <a class="small-map" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/qamf1DEZyvTigQxm6">Googleマップを開く →</a>
+          </article>
+          <article class="info-card">
+            <div class="info-top">
+              <h3 class="info-title">鈴木不動産コインパーク 筒井1丁目</h3>
+              <span class="info-rank">第2候補</span>
+            </div>
+            <p>m.への近さが有力。台数・料金・最大料金の条件は <span class="unconfirmed">未確認</span>。現地看板を優先。</p>
+            <a class="small-map" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/Dh6MEmfkot4frnPr9">Googleマップを開く →</a>
+          </article>
+          <article class="info-card">
+            <div class="info-top">
+              <h3 class="info-title">エイブルパーキング 車道町2丁目</h3>
+              <span class="info-rank">第3候補</span>
+            </div>
+            <p>小規模。最大料金は写真600円・公開情報700円で不一致のため <span class="unconfirmed">未確認</span>。現地看板を優先。</p>
+            <a class="small-map" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/ECa9sKR9D5Ua1uC98">Googleマップを開く →</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="notes" aria-labelledby="notes-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Notes</p>
+            <h2 id="notes-title">注意事項</h2>
+          </div>
+        </div>
+        <div class="notice-list">
+          <div class="alert"><strong>保冷が最重要</strong><p>クリーム・チーズ・総菜系は暑い車内に置かず、保冷バッグで持ち歩く。m.で車に置くのは常温保存できるパンだけ。</p></div>
+          <div class="alert"><strong>ロダスは売り切れリスクあり</strong><p>開店前から待機列ができ、数量制限もある案内。今回はIENとEGORAPIN’の指定商品を優先した確定順。</p></div>
+          <div class="alert"><strong>高速道路の休日割引なし</strong><p>7月18〜20日は3連休のため対象外。高速料金は経路により約5,600〜6,500円＋燃料代の目安。</p></div>
+          <div class="alert"><strong>当日朝に最終確認</strong><p>各店のInstagramで臨時休業・完売案内、高速道路の事故・渋滞、天気を確認する。</p></div>
+        </div>
+      </section>
+
+      <section id="packing" aria-labelledby="packing-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Packing list</p>
+            <h2 id="packing-title">持ち物</h2>
+          </div>
+          <button type="button" class="ghost-btn" id="resetPacking">持ち物をリセット</button>
+        </div>
+        <div class="check-list" id="packingList">
+          <label class="packing-item"><input type="checkbox" data-pack-id="cooler">保冷バッグ</label>
+          <label class="packing-item"><input type="checkbox" data-pack-id="icepacks">大型保冷剤 複数</label>
+          <label class="packing-item"><input type="checkbox" data-pack-id="bottles">凍らせた飲料</label>
+          <label class="packing-item"><input type="checkbox" data-pack-id="foam">発泡スチロール箱</label>
+          <label class="packing-item"><input type="checkbox" data-pack-id="ticket">現金・交通系IC</label>
+          <label class="packing-item"><input type="checkbox" data-pack-id="etc">ETCカード</label>
+          <label class="packing-item"><input type="checkbox" data-pack-id="umbrella">雨具</label>
+          <label class="packing-item"><input type="checkbox" data-pack-id="water">飲み物</label>
+          <label class="packing-item"><input type="checkbox" data-pack-id="bag">買い物用バッグ</label>
+        </div>
+      </section>
+
+      <section id="delays" aria-labelledby="delays-title">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Delay plan</p>
+            <h2 id="delays-title">遅延時の代替案</h2>
+          </div>
+        </div>
+        <div class="delay-list">
+          <div class="delay-item"><span class="delay-trigger">駐車場満車</span><div class="delay-text">第一候補で待たず、2〜3分で第2候補、第3候補へ移動する。</div></div>
+          <div class="delay-item"><span class="delay-trigger">m.で遅延</span><div class="delay-text">9:40までに退店できれば順番は変更せず、そのままIENへ。</div></div>
+          <div class="delay-item"><span class="delay-trigger">EGORA遅着</span><div class="delay-text">11:15程度の到着でも順番を変えず、掛川抹茶を優先する。</div></div>
+          <div class="delay-item"><span class="delay-trigger">高島屋混雑</span><div class="delay-text">夫婦でロダス係とmiel係に分かれ、買い物は最大30分を目安にする。</div></div>
+          <div class="delay-item"><span class="delay-trigger">市内で遅延</span><div class="delay-text">遅くとも13:30までに車道を出発し、TABLEAUへ向かう。</div></div>
+          <div class="delay-item"><span class="delay-trigger">商品売切れ</span><div class="delay-text">別店舗への追加変更は行わず、確定ルートを維持する。</div></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>名古屋 パンとスイーツの旅｜2026年7月19日</div>
+      <div class="bottom-note">営業時間・料金は変更される場合があります。表示が「未確認」の項目とあわせ、当日の現地表示を優先してください。</div>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const PLAN_KEY = 'nagoya-trip-2026-plan-v1';
+      const PACK_KEY = 'nagoya-trip-2026-pack-v1';
+      const planItems = [...document.querySelectorAll('.plan-item')];
+      const planChecks = [...document.querySelectorAll('.plan-check')];
+      const packingChecks = [...document.querySelectorAll('[data-pack-id]')];
+      const nextPlan = document.getElementById('nextPlan');
+      const progressText = document.getElementById('progressText');
+      const progressBar = document.getElementById('progressBar');
+
+      const readState = (key) => {
+        try {
+          const value = JSON.parse(localStorage.getItem(key) || '{}');
+          return value && typeof value === 'object' ? value : {};
+        } catch (error) {
+          return {};
+        }
+      };
+
+      const writeState = (key, value) => {
+        try { localStorage.setItem(key, JSON.stringify(value)); } catch (error) { /* Storage unavailable */ }
+      };
+
+      const planState = readState(PLAN_KEY);
+      const packState = readState(PACK_KEY);
+
+      planItems.forEach((item) => {
+        const id = item.dataset.planId;
+        const checkbox = item.querySelector('.plan-check');
+        checkbox.checked = Boolean(planState[id]);
+        item.classList.toggle('is-complete', checkbox.checked);
+      });
+
+      packingChecks.forEach((checkbox) => {
+        checkbox.checked = Boolean(packState[checkbox.dataset.packId]);
+      });
+
+      function updateProgress() {
+        const completeCount = planChecks.filter((checkbox) => checkbox.checked).length;
+        const percent = planChecks.length ? (completeCount / planChecks.length) * 100 : 0;
+        progressText.textContent = `${completeCount} / ${planChecks.length}`;
+        progressBar.style.width = `${percent}%`;
+      }
+
+      function updateNextPlan(now = new Date()) {
+        planItems.forEach((item) => item.classList.remove('is-next'));
+
+        const incomplete = planItems.filter((item) => !item.querySelector('.plan-check').checked);
+        let target = incomplete.find((item) => {
+          const start = new Date(item.dataset.start);
+          const end = new Date(item.dataset.end);
+          return now >= start && now <= end;
+        });
+
+        if (!target) {
+          target = incomplete.find((item) => now < new Date(item.dataset.start));
+        }
+
+        if (target) {
+          target.classList.add('is-next');
+          const time = target.querySelector('.plan-time').textContent.trim();
+          const title = target.querySelector('.plan-title').textContent.trim();
+          nextPlan.textContent = `${time}　${title}`;
+        } else if (incomplete.length === 0) {
+          nextPlan.textContent = 'すべての予定が完了しました';
+        } else {
+          nextPlan.textContent = '本日の予定時刻は終了しました';
+        }
+      }
+
+      planChecks.forEach((checkbox) => {
+        checkbox.addEventListener('change', () => {
+          const item = checkbox.closest('.plan-item');
+          const id = item.dataset.planId;
+          const state = readState(PLAN_KEY);
+          state[id] = checkbox.checked;
+          writeState(PLAN_KEY, state);
+          item.classList.toggle('is-complete', checkbox.checked);
+          updateProgress();
+          updateNextPlan();
+        });
+      });
+
+      packingChecks.forEach((checkbox) => {
+        checkbox.addEventListener('change', () => {
+          const state = readState(PACK_KEY);
+          state[checkbox.dataset.packId] = checkbox.checked;
+          writeState(PACK_KEY, state);
+        });
+      });
+
+      document.getElementById('resetButton').addEventListener('click', () => {
+        if (!window.confirm('当日の予定チェックをすべてリセットしますか？')) return;
+        planChecks.forEach((checkbox) => {
+          checkbox.checked = false;
+          checkbox.closest('.plan-item').classList.remove('is-complete');
+        });
+        try { localStorage.removeItem(PLAN_KEY); } catch (error) { /* Storage unavailable */ }
+        updateProgress();
+        updateNextPlan();
+      });
+
+      document.getElementById('resetPacking').addEventListener('click', () => {
+        if (!window.confirm('持ち物チェックをすべてリセットしますか？')) return;
+        packingChecks.forEach((checkbox) => { checkbox.checked = false; });
+        try { localStorage.removeItem(PACK_KEY); } catch (error) { /* Storage unavailable */ }
+      });
+
+      document.querySelectorAll('.visit-summary').forEach((button) => {
+        button.addEventListener('click', () => {
+          const body = document.getElementById(button.getAttribute('aria-controls'));
+          const isOpen = button.getAttribute('aria-expanded') === 'true';
+          button.setAttribute('aria-expanded', String(!isOpen));
+          body.classList.toggle('is-open', !isOpen);
+        });
+      });
+
+      updateProgress();
+      updateNextPlan();
+      window.setInterval(() => updateNextPlan(), 60000);
+    })();
+  </script>
+</body>
+</html>
